@@ -503,6 +503,7 @@
         .awards-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 200px;
             gap: 24px;
         }
 
@@ -562,8 +563,12 @@
         
         /* Performances Section */
         .performances {
-            background: #EEF5F8;
+            background: #C8DCE4;
             padding-top: 60px;
+        }
+
+        .performances .section-header {
+            margin-bottom: 40px;
         }
 
         .perf-subsection {
@@ -573,6 +578,10 @@
             border-radius: 8px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
         }
+
+        .perf-yt-section { background: #FFF5F5; }
+        .perf-fb-section { background: #F3F7FF; }
+        .perf-ig-section { background: #FEF8FD; }
 
         .perf-subsection-header {
             margin-bottom: 20px;
@@ -910,6 +919,7 @@
         .contact {
             background: var(--color-peacock);
             color: white;
+            padding-top: 60px;
         }
         
         .contact .section-subtitle {
@@ -941,18 +951,19 @@
         
         .contact-item h4 {
             font-family: var(--font-body);
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 600;
             letter-spacing: 2px;
             text-transform: uppercase;
             color: var(--color-gold);
             margin-bottom: 10px;
         }
-        
+
         .contact-item p,
         .contact-item a {
             font-family: var(--font-body);
-            font-size: 16px;
+            font-size: 19px;
+            letter-spacing: 0.5px;
             color: white;
             text-decoration: none;
             transition: color 0.3s ease;
@@ -973,27 +984,25 @@
         
         .social-links {
             display: flex;
-            gap: 20px;
-            margin-top: 40px;
+            flex-direction: row;
+            gap: 16px;
+            margin-top: 10px;
         }
-        
+
         .social-link {
-            width: 50px;
-            height: 50px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
+            background: rgba(255, 255, 255, 0.12);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
             text-decoration: none;
-            font-size: 20px;
             transition: all 0.3s ease;
         }
-        
+
         .social-link:hover {
-            background: var(--color-gold);
-            border-color: var(--color-gold);
+            background: rgba(255, 255, 255, 0.25);
             transform: translateY(-3px);
         }
         
@@ -1001,7 +1010,7 @@
             font-family: var(--font-display);
             font-size: 28px;
             font-weight: 600;
-            margin-bottom: 30px;
+            margin-bottom: 10px;
             color: white;
         }
         
@@ -1021,7 +1030,8 @@
         }
         
         .form-group input,
-        .form-group textarea {
+        .form-group textarea,
+        .form-group select {
             width: 100%;
             padding: 15px;
             font-family: var(--font-body);
@@ -1038,8 +1048,14 @@
             color: rgba(255, 255, 255, 0.5);
         }
         
+        .form-group select option {
+            background: var(--color-peacock);
+            color: white;
+        }
+
         .form-group input:focus,
-        .form-group textarea:focus {
+        .form-group textarea:focus,
+        .form-group select:focus {
             outline: none;
             border-color: var(--color-gold);
             background: rgba(255, 255, 255, 0.15);
@@ -1048,6 +1064,34 @@
         .form-group textarea {
             resize: vertical;
             min-height: 150px;
+        }
+
+        .reveal-btn {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1.5px dashed rgba(255, 255, 255, 0.4);
+            color: rgba(255, 255, 255, 0.8);
+            font-family: var(--font-body);
+            font-size: 15px;
+            font-style: normal;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            transition: all 0.2s ease;
+        }
+
+        .reveal-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .contact-form-intro {
+            font-family: var(--font-body);
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 24px;
+            line-height: 1.7;
         }
 
         .contact-form .btn-primary {
@@ -1059,6 +1103,28 @@
         .contact-form .btn-primary:hover {
             background: var(--color-deep-gold);
             color: white;
+        }
+
+        /* Contact form: success and error feedback */
+        .form-success {
+            padding: 24px 20px;
+            border: 1px solid var(--color-gold);
+            border-radius: 8px;
+            color: white;
+        }
+
+        .form-success p {
+            font-family: var(--font-body);
+            font-size: 16px;
+            color: white;
+            margin: 0;
+        }
+
+        .form-error {
+            margin-top: 12px;
+            font-family: var(--font-body);
+            font-size: 14px;
+            color: #f4a5a5;
         }
 
         /* Footer */
@@ -1231,54 +1297,78 @@
 
             .hero {
                 height: auto;
-                min-height: 100vw;
-                background: url('images/shruthi_portrait_4.jpg') center 10% / cover no-repeat;
-                align-items: flex-end;
+                min-height: 180vw;
+                background: url('images/shruthi_portrait_mobile.jpg') center bottom / cover no-repeat;
+                display: flex;
+                align-items: flex-start;
+                padding-top: 70px;
                 padding-bottom: 40px;
             }
 
             .hero-container {
+                width: 100%;
+                display: flex;
                 justify-content: center;
-                align-items: flex-end;
+                align-items: flex-start;
                 padding: 20px;
+                padding-top: 30px;
+            }
+
+            .hero-content {
+                width: 100%;
+                text-align: center;
+                background: rgba(0, 0, 0, 0.2);
+                border-radius: 8px;
+                padding: 20px 16px;
+                backdrop-filter: blur(1px);
+                display: flex;
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .hero-content .hero-subtitle {
+                font-size: 18px;
+                margin: 0;
+                padding: 0;
+                line-height: 1.2;
+            }
+
+            .hero-content .hero-title {
+                font-size: 28px;
+                white-space: nowrap;
+                margin: 4px 0 0 0;
+                padding: 0;
+                line-height: 1.2;
+            }
+
+            .hero-content .hero-description {
+                font-size: 15px;
+                color: #ffffff;
+                margin: 4px 0 0 0;
+                padding: 0;
+                line-height: 1.4;
+            }
+
+            .hero-content .hero-cta {
+                margin-top: 16px;
+                flex-direction: row;
+                gap: 10px;
+                justify-content: center;
+            }
+
+            .hero-cta .btn {
+                font-size: 10px;
+                padding: 12px 14px;
+                letter-spacing: 1px;
+                width: auto;
             }
 
             .awards-grid {
                 grid-template-columns: 1fr;
             }
 
-            .hero-content {
-                width: 100%;
-                text-align: center;
-                margin-top: 0;
-                background: rgba(0, 0, 0, 0);
-                border-radius: 8px;
-                padding: 20px 24px;
-                backdrop-filter: blur(4px);
-            }
-
-            .hero-description {
-                color: #ffffff;
-            }
-
             .performance-gallery .gallery-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .btn {
-                font-size: 12px;
-                padding: 14px 28px;
-            }
-
-            .hero-cta {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .hero-cta .btn {
-                width: 100%;
-                text-align: center;
-                justify-content: center;
             }
 
             /* Mobile-optimized video cards - full width stacked */
@@ -1340,9 +1430,6 @@
         }
 
         @media (max-width: 480px) {
-            .hero-title {
-                font-size: 32px;
-            }
 
             .section-title {
                 font-size: 28px;
@@ -1363,10 +1450,10 @@
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
-            <div class="logo-placeholder">
+            <a href="#home" class="logo-placeholder" style="text-decoration:none;">
                 <!-- Future logo will go here -->
                 Shruthi Shankar Kumar
-            </div>
+            </a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -1539,7 +1626,7 @@
                     <div class="award-org">Sri Parthasarathy Swami Sabha, Chennai</div>
                     <div class="award-year">2014</div>
                 </div>
-                <div class="award-tile">
+                <div class="award-tile" style="grid-column: 2;">
                     <div class="award-name">Prathibakankshi Award</div>
                     <div class="award-org">Sree Rama Seva Mandali, Bangalore</div>
                     <div class="award-year">2008</div>
@@ -1556,7 +1643,7 @@
                 <h2 class="section-title">Performances</h2>
             </div>
             <!-- 1. YouTube — Songs + Full Concerts in one card -->
-            <div class="perf-subsection">
+            <div class="perf-subsection perf-yt-section">
                 <div class="perf-subsection-header">
                     <div class="perf-platform-tag yt-tag">
                         <svg fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
@@ -1565,7 +1652,7 @@
                     <h4 class="perf-sub-header">From Shruthi's YouTube Channel</h4>
                 </div>
                 <div class="perf-video-grid">
-                    <div class="perf-yt-card"><iframe src="https://www.youtube.com/embed/0ovDto2NfYw?modestbranding=1&rel=0&showinfo=0" allowfullscreen></iframe></div>
+                    <div class="perf-yt-card"><iframe src="https://www.youtube.com/embed/pyQ2bM1_Wrs?modestbranding=1&rel=0&showinfo=0" allowfullscreen></iframe></div>
                     <div class="perf-yt-card"><iframe src="https://www.youtube.com/embed/6EoQKVtKwuY?modestbranding=1&rel=0&showinfo=0" allowfullscreen></iframe></div>
                     <div class="perf-yt-card"><iframe src="https://www.youtube.com/embed/iFkZtUnKOeE?modestbranding=1&rel=0&showinfo=0" allowfullscreen></iframe></div>
                 </div>
@@ -1583,7 +1670,7 @@
             </div>
 
             <!-- 2. Facebook Videos -->
-            <div class="perf-subsection">
+            <div class="perf-subsection perf-fb-section">
                 <div class="perf-subsection-header">
                     <div class="perf-platform-tag fb-tag">
                         <svg fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
@@ -1592,15 +1679,21 @@
                     <h3 class="perf-subsection-title">Snippets from Facebook</h3>
                 </div>
                 <div class="perf-video-grid perf-portrait-grid">
-                    <div class="perf-embed-card"><div class="perf-embed-placeholder fb-placeholder">Facebook embed coming soon</div></div>
-                    <div class="perf-embed-card"><div class="perf-embed-placeholder fb-placeholder">Facebook embed coming soon</div></div>
-                    <div class="perf-embed-card"><div class="perf-embed-placeholder fb-placeholder">Facebook embed coming soon</div></div>
+                    <div class="perf-embed-card">
+                        <div class="fb-video" data-href="https://www.facebook.com/reel/902198845739611" data-show-text="false" data-width="auto"></div>
+                    </div>
+                    <div class="perf-embed-card">
+                        <div class="fb-video" data-href="https://www.facebook.com/reel/1638945200606134" data-show-text="false" data-width="auto"></div>
+                    </div>
+                    <div class="perf-embed-card">
+                        <div class="fb-video" data-href="https://www.facebook.com/reel/1278894080874818" data-show-text="false" data-width="auto"></div>
+                    </div>
                 </div>
-                <div class="perf-view-more"><a href="#" target="_blank" class="perf-view-more-btn fb-btn">Visit Facebook Page</a></div>
+                <div class="perf-view-more"><a href="https://www.facebook.com/shruthishankarkumarcarnatic" target="_blank" class="perf-view-more-btn fb-btn">Visit Facebook Page</a></div>
             </div>
 
             <!-- 3. Instagram Reels -->
-            <div class="perf-subsection">
+            <div class="perf-subsection perf-ig-section">
                 <div class="perf-subsection-header">
                     <div class="perf-platform-tag ig-tag">
                         <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
@@ -1610,7 +1703,7 @@
                 </div>
                 <div class="perf-video-grid perf-portrait-grid">
                     <div class="perf-embed-card">
-                        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DTz1_hojLCS/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);"></blockquote>
+                        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DM9tgBpTvlO/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);"></blockquote>
                     </div>
                     <div class="perf-embed-card">
                         <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DTaeuO7DK6Q/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);"></blockquote>
@@ -1619,7 +1712,7 @@
                         <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DSX0Q-TE_rg/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);"></blockquote>
                     </div>
                 </div>
-                <div class="perf-view-more"><a href="#" target="_blank" class="perf-view-more-btn ig-btn">Visit Instagram Profile</a></div>
+                <div class="perf-view-more"><a href="https://www.instagram.com/shruthi_abhyasa/" target="_blank" class="perf-view-more-btn ig-btn">Visit Instagram Profile</a></div>
             </div>
 
         </div>
@@ -1637,55 +1730,66 @@
                     <h3>Contact Information</h3>
                     
                     <div class="contact-item">
-                        <h4>Email</h4>
-                        <a href="mailto:shruthi@example.com">shruthi@example.com</a>
+                        <h4>Phone &amp; WhatsApp</h4>
+                        <div id="reveal-wrapper">
+                            <button class="reveal-btn" onclick="revealNumbers()">Tap to reveal numbers</button>
+                        </div>
                     </div>
                     
-                    <div class="contact-item">
-                        <h4>Phone</h4>
-                        <a href="tel:+919999999999">+91 99999 99999</a><br>
-                        <a href="tel:+918888888888">+91 88888 88888</a>
-                    </div>
-                    
-                    <h4 style="margin-top: 40px; margin-bottom: 15px;">Follow</h4>
+                    <h4 style="margin-top: 40px; margin-bottom: 15px; font-size: 19px;">Stay Connected on Socials</h4>
                     <div class="social-links">
-                        <a href="#" class="social-link" target="_blank" title="Instagram">
-                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                            </svg>
+                        <a href="https://www.instagram.com/shruthi_abhyasa/" class="social-link" target="_blank" title="Instagram">
+                            <svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                         </a>
-                        <a href="#" class="social-link" target="_blank" title="Facebook">
-                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                            </svg>
+                        <a href="https://www.facebook.com/shruthishankarkumarcarnatic" class="social-link" target="_blank" title="Facebook">
+                            <svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                         </a>
-                        <a href="#" class="social-link" target="_blank" title="YouTube">
-                            <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                            </svg>
+                        <a href="https://www.youtube.com/@shruthishankarkumar9554" class="social-link" target="_blank" title="YouTube">
+                            <svg width="22" height="22" fill="white" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                         </a>
                     </div>
                 </div>
                 
                 <div class="contact-form">
                     <h3>Send a Message</h3>
-                    <form>
+                    <p class="contact-form-intro">For music classes, concert bookings, or collaborations — get in touch.</p>
+                    <!-- Success message shown after submission -->
+                    <div class="form-success" style="display:none;" aria-live="polite">
+                        <p>Thank you for your message! I'll be in touch soon.</p>
+                    </div>
+                    <form id="contact-form">
+                        <!-- Honeypot field: hidden from real users, catches bots (Formspree ignores submissions where this is filled) -->
+                        <input type="text" name="_gotcha" style="display:none;" tabindex="-1" autocomplete="off">
+
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" id="name" placeholder="Your name" required>
+                            <input type="text" id="name" name="name" placeholder="Your name" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" placeholder="your.email@example.com" required>
+                            <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
                         </div>
-                        
+
+                        <div class="form-group">
+                            <label for="reason">Reason for Enquiry</label>
+                            <select id="reason" name="reason" required>
+                                <option value="" disabled selected>Select a reason</option>
+                                <option value="music-classes">Music Classes</option>
+                                <option value="concert-booking">Concert Booking</option>
+                                <option value="collaboration">Collaboration</option>
+                                <option value="general">Others</option>
+                            </select>
+                        </div>
+
                         <div class="form-group">
                             <label for="message">Message</label>
-                            <textarea id="message" placeholder="Your message..." required></textarea>
+                            <textarea id="message" name="message" placeholder="Your message..." required></textarea>
                         </div>
-                        
+
                         <button type="submit" class="btn btn-primary">Send Message</button>
+                        <!-- Inline error message shown on submission failure -->
+                        <p class="form-error" style="display:none;" aria-live="assertive"></p>
                     </form>
                 </div>
             </div>
@@ -1698,6 +1802,24 @@
     </footer>
 
     <script>
+        // Phone number reveal
+        const _n = [['9','9','6','2','1','1','8','2','9','4'], ['9','8','4','1','0','2','5','9','5','3']];
+        const _wa = '<svg width="16" height="16" fill="#25D366" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>';
+        function revealNumbers() {
+            const wrapper = document.getElementById('reveal-wrapper');
+            wrapper.innerHTML = '';
+            _n.forEach(function(arr) {
+                const digits = arr.join('');
+                const formatted = '+91 ' + digits.slice(0,5) + ' ' + digits.slice(5);
+                const a = document.createElement('a');
+                a.href = 'https://wa.me/91' + digits;
+                a.target = '_blank';
+                a.style.cssText = 'display:flex;align-items:center;gap:8px;color:white;text-decoration:none;font-size:19px;letter-spacing:0.5px;margin-bottom:8px;';
+                a.innerHTML = _wa + ' ' + formatted;
+                wrapper.appendChild(a);
+            });
+        }
+
         // Navbar scroll effect
         const navbar = document.getElementById('navbar');
 
@@ -1740,12 +1862,65 @@
             });
         });
         
-        // Form submission (placeholder - replace with actual form handling)
-        document.querySelector('.contact-form form').addEventListener('submit', (e) => {
+        // Contact form — Formspree AJAX submission
+        // IMPORTANT: Replace YOUR_FORM_ID below with your actual Formspree form ID
+        // (e.g. https://formspree.io/f/abcd1234). Get one free at https://formspree.io
+        const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xzdygykn';
+
+        document.getElementById('contact-form').addEventListener('submit', async (e) => {
             e.preventDefault();
-            alert('Thank you for your message! This is a placeholder. Connect this to your email service.');
+
+            const form        = e.target;
+            const submitBtn   = form.querySelector('button[type="submit"]');
+            const errorMsg    = form.querySelector('.form-error');
+            const successDiv  = form.closest('.contact-form').querySelector('.form-success');
+
+            // Reset previous error state
+            errorMsg.style.display = 'none';
+            errorMsg.textContent   = '';
+
+            // Disable button and show loading state
+            submitBtn.disabled    = true;
+            submitBtn.textContent = 'Sending\u2026';
+
+            try {
+                const response = await fetch(FORMSPREE_ENDPOINT, {
+                    method:  'POST',
+                    headers: { 'Accept': 'application/json' },
+                    body:    new FormData(form)
+                });
+
+                if (response.ok) {
+                    // Hide the form and show the success message
+                    form.style.display      = 'none';
+                    successDiv.style.display = 'block';
+                } else {
+                    // Try to surface Formspree's error detail if available
+                    let detail = 'Something went wrong. Please try again or email directly.';
+                    try {
+                        const data = await response.json();
+                        if (data && data.errors) {
+                            detail = data.errors.map(err => err.message).join(' ');
+                        }
+                    } catch (_) { /* ignore JSON parse errors */ }
+
+                    errorMsg.textContent   = detail;
+                    errorMsg.style.display = 'block';
+
+                    // Re-enable button so the user can retry
+                    submitBtn.disabled    = false;
+                    submitBtn.textContent = 'Send Message';
+                }
+            } catch (_) {
+                errorMsg.textContent   = 'Network error — please check your connection and try again.';
+                errorMsg.style.display = 'block';
+                submitBtn.disabled    = false;
+                submitBtn.textContent = 'Send Message';
+            }
         });
     </script>
     <script async src="https://www.instagram.com/embed.js"></script>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0"></script>
 </body>
 </html>
