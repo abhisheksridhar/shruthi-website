@@ -560,69 +560,196 @@
         }
         
         
-        /* Performances Section - Warm Peachy */
+        /* Performances Section */
         .performances {
-            background: linear-gradient(to bottom, #FFF9F0 0%, #FFF5E8 100%);
+            background: #EEF5F8;
+            padding-top: 60px;
         }
 
-        .performances .container {
-            padding-left: 40px;
-            padding-right: 40px;
+        .perf-subsection {
+            margin-bottom: 40px;
+            padding: 40px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
         }
 
-        .performances .section-header {
+        .perf-subsection-header {
             margin-bottom: 20px;
         }
 
-        .performances .snippets-section {
-            background: linear-gradient(to bottom, #FFF9F0 0%, #FFF7ED 100%);
-            padding: 50px 0;
-            margin: 0 0 40px 0;
-            border-radius: 8px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+        .perf-platform-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-display) !important;
+            font-size: 22px;
+            font-weight: 600;
+            font-style: italic !important;
+            margin-bottom: 12px;
         }
 
-        .performances .full-concerts-section {
-            background: linear-gradient(to bottom, #FFFBF5 0%, #FFF9F0 100%);
-            padding: 50px 0;
-            margin: 0 0 40px 0;
-            border-radius: 8px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+        .perf-platform-tag svg {
+            width: 28px;
+            height: 28px;
+            flex-shrink: 0;
         }
 
-        .performances .performance-gallery {
-            background: linear-gradient(to bottom, #FAF3E8 0%, #F5EDE0 100%);
-            padding: 50px 0;
-            margin: 0 0 40px 0;
-            border-radius: 8px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
-        }
-        
-        .performances .snippets-section .video-grid,
-        .performances .full-concerts-section .video-grid {
-            padding: 0 40px;
+        .yt-tag { color: #FF0000; }
+        .fb-tag { color: #1877F2; }
+        .ig-tag { color: #bc1888; }
+
+        :root {
+            --perf-header-color: var(--color-charcoal);
         }
 
-        .performances .video-grid {
+        .perf-subsection-title {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 600;
+            font-style: italic;
+            color: var(--perf-header-color);
+            margin: 0 0 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+
+        .perf-sub-header {
+            color: var(--perf-header-color);
+        }
+
+        .perf-subsection-desc {
+            font-family: var(--font-body);
+            font-size: 14px;
+            color: var(--color-soft-gray);
+            margin: 0;
+        }
+
+        .perf-video-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .perf-video-card {
+            background: #FAFAFA;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .perf-video-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+
+        .perf-video-placeholder {
+            width: 100%;
+            aspect-ratio: 16/9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-body);
+            font-size: 13px;
+            color: white;
+            opacity: 0.8;
+        }
+
+        .yt-placeholder { background: #CC0000; }
+        .fb-placeholder { background: #1877F2; }
+        .ig-placeholder { background: linear-gradient(135deg, #f09433, #dc2743, #bc1888); }
+
+        .perf-video-info {
+            padding: 14px 16px;
+        }
+
+        .perf-video-info h4 {
+            font-family: var(--font-display);
+            font-size: 16px;
+            font-weight: 600;
+            font-style: italic;
+            color: var(--color-charcoal);
+            margin: 0 0 4px;
+        }
+
+        .perf-video-info p {
+            font-family: var(--font-body);
+            font-size: 13px;
+            color: var(--color-soft-gray);
+            margin: 0;
+        }
+
+        .perf-view-more {
+            text-align: right;
+        }
+
+        .perf-view-more-btn {
+            font-family: var(--font-body) !important;
+            font-size: 14px;
+            font-weight: 500;
+            font-style: normal !important;
+            text-decoration: none;
+            padding: 8px 20px;
+            border-radius: 4px;
+            display: inline-block;
+            transition: opacity 0.2s ease;
+        }
+
+        .perf-view-more-btn:hover { opacity: 0.8; }
+        .yt-btn { background: #FF0000; color: white; }
+        .fb-btn { background: #1877F2; color: white; }
+        .ig-btn { background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); color: white; }
+
+        .perf-sub-header {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 600;
+            font-style: italic;
+            color: var(--perf-header-color);
+            margin: 0 0 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+
+        .perf-portrait-grid {
             grid-template-columns: repeat(3, 1fr);
         }
-        
-        .performances .section-divider {
-            margin: 80px 0 40px;
+
+        .perf-portrait-placeholder {
+            aspect-ratio: 3/4 !important;
         }
-        
-        .performances .section-divider h3 {
-            font-family: var(--font-display);
-            font-size: 32px;
-            font-weight: 600;
-            color: var(--color-peacock);
-            margin-bottom: 10px;
+
+        .perf-yt-card {
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.07);
         }
-        
-        .performances .section-divider p {
+
+        .perf-yt-card iframe {
+            width: 100%;
+            aspect-ratio: 16/9;
+            display: block;
+            border: none;
+        }
+
+        .perf-embed-card {
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .perf-embed-placeholder {
+            width: 100%;
+            aspect-ratio: 3/4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-family: var(--font-body);
-            font-size: 15px;
-            color: var(--color-soft-gray);
+            font-size: 13px;
+            color: white;
+            opacity: 0.7;
+            border-radius: 6px;
         }
         
         .video-grid {
@@ -1007,6 +1134,10 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
+            .perf-video-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
             .contact-content {
                 grid-template-columns: 1fr;
                 gap: 50px;
@@ -1062,6 +1193,18 @@
 
             .performances .video-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .perf-video-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .perf-subsection {
+                padding: 24px 16px;
+            }
+
+            .perf-view-more {
+                text-align: center;
             }
 
             .awards-grid {
@@ -1405,169 +1548,74 @@
         </div>
     </section>
 
-    <!-- Performances Section (with integrated gallery) -->
+    <!-- Performances Section -->
     <section class="performances" id="performances">
         <div class="container">
             <div class="section-header">
+                <div class="section-subtitle">Watch & Listen</div>
                 <h2 class="section-title">Performances</h2>
             </div>
-            
-            <!-- Performance Snippets FIRST -->
-            <div class="snippets-section">
-                <h3 style="font-family: var(--font-display); font-size: 32px; color: var(--color-peacock); margin-bottom: 10px; text-align: center;">Performance Snippets</h3>
-                <p style="font-family: var(--font-body); font-size: 15px; color: var(--color-soft-gray); text-align: center; margin-bottom: 30px;">Highlights from various concerts showcasing different ragas and compositions</p>
-                <div class="video-grid">
-                <div class="video-card">
-                    <div class="video-placeholder">
-                        YouTube Snippet 1
+            <!-- 1. YouTube — Songs + Full Concerts in one card -->
+            <div class="perf-subsection">
+                <div class="perf-subsection-header">
+                    <div class="perf-platform-tag yt-tag">
+                        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        YouTube
                     </div>
-                    <div class="video-info">
-                        <h3>Raga/Song Name</h3>
-                        <p>Brief description or composition details</p>
-                    </div>
+                    <h4 class="perf-sub-header">From Shruthi's YouTube Channel</h4>
                 </div>
-                
-                <div class="video-card">
-                    <div class="video-placeholder">
-                        YouTube Snippet 2
-                    </div>
-                    <div class="video-info">
-                        <h3>Raga/Song Name</h3>
-                        <p>Brief description</p>
-                    </div>
+                <div class="perf-video-grid">
+                    <div class="perf-yt-card"><iframe src="https://www.youtube.com/embed/0ovDto2NfYw?modestbranding=1&rel=0&showinfo=0" allowfullscreen></iframe></div>
+                    <div class="perf-yt-card"><iframe src="https://www.youtube.com/embed/6EoQKVtKwuY?modestbranding=1&rel=0&showinfo=0" allowfullscreen></iframe></div>
+                    <div class="perf-yt-card"><iframe src="https://www.youtube.com/embed/iFkZtUnKOeE?modestbranding=1&rel=0&showinfo=0" allowfullscreen></iframe></div>
                 </div>
-                
-                <div class="video-card">
-                    <div class="video-placeholder">
-                        YouTube Snippet 3
-                    </div>
-                    <div class="video-info">
-                        <h3>Raga/Song Name</h3>
-                        <p>Brief description</p>
-                    </div>
+                <div class="perf-view-more" style="margin-bottom: 40px;">
+                    <a href="https://www.youtube.com/@shruthishankarkumar9554" target="_blank" class="perf-view-more-btn yt-btn">Visit YouTube Channel</a>
                 </div>
-                
-                <div class="video-card">
-                    <div class="video-placeholder">
-                        YouTube Snippet 4
-                    </div>
-                    <div class="video-info">
-                        <h3>Raga/Song Name</h3>
-                        <p>Brief description</p>
-                    </div>
-                </div>
-                
-                <div class="video-card">
-                    <div class="video-placeholder">
-                        YouTube Snippet 5
-                    </div>
-                    <div class="video-info">
-                        <h3>Raga/Song Name</h3>
-                        <p>Brief description</p>
-                    </div>
-                </div>
-                
-                <div class="video-card">
-                    <div class="video-placeholder">
-                        YouTube Snippet 6
-                    </div>
-                    <div class="video-info">
-                        <h3>Raga/Song Name</h3>
-                        <p>Brief description</p>
-                    </div>
+
+                <!-- Sub-header: Full Concerts -->
+                <h4 class="perf-sub-header">Full Concerts</h4>
+                <div class="perf-video-grid">
+                    <div class="perf-yt-card"><iframe src="https://www.youtube.com/embed/wbZWC1koXJk?modestbranding=1&rel=0&showinfo=0" allowfullscreen></iframe></div>
+                    <div class="perf-yt-card"><iframe src="https://www.youtube.com/embed/jKYE0Y3gerE?modestbranding=1&rel=0&showinfo=0" allowfullscreen></iframe></div>
+                    <div class="perf-yt-card"><iframe src="https://www.youtube.com/embed/hAykETICBbE?modestbranding=1&rel=0&showinfo=0" allowfullscreen></iframe></div>
                 </div>
             </div>
-            </div>
-            
-            <!-- View Full Channel Button AFTER Snippets -->
-            <div class="view-channel-btn">
-                <a href="https://www.youtube.com/@YOURCHANNEL" target="_blank" class="btn btn-youtube">
-                    <svg fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                    </svg>
-                    View Full YouTube Channel
-                </a>
-            </div>
-            
-            <!-- Full Concerts AFTER Button - Only 3 tiles -->
-            <div class="full-concerts-section">
-                <h3 style="font-family: var(--font-display); font-size: 32px; color: var(--color-peacock); margin: 0 0 30px; text-align: center;">Full Concerts</h3>
-                <div class="video-grid" style="grid-template-columns: repeat(3, 1fr);">
-                <div class="video-card">
-                    <div class="video-placeholder">
-                        YouTube Video 1
+
+            <!-- 2. Facebook Videos -->
+            <div class="perf-subsection">
+                <div class="perf-subsection-header">
+                    <div class="perf-platform-tag fb-tag">
+                        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        Facebook
                     </div>
-                    <!-- Replace with actual YouTube embed:
-                    <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
-                    -->
-                    <div class="video-info">
-                        <h3>Concert Title</h3>
-                        <p>Venue Name • Date</p>
-                    </div>
+                    <h3 class="perf-subsection-title">Snippets from Facebook</h3>
                 </div>
-                
-                <div class="video-card">
-                    <div class="video-placeholder">
-                        YouTube Video 2
-                    </div>
-                    <div class="video-info">
-                        <h3>Concert Title</h3>
-                        <p>Venue Name • Date</p>
-                    </div>
+                <div class="perf-video-grid perf-portrait-grid">
+                    <div class="perf-embed-card"><div class="perf-embed-placeholder fb-placeholder">Facebook embed coming soon</div></div>
+                    <div class="perf-embed-card"><div class="perf-embed-placeholder fb-placeholder">Facebook embed coming soon</div></div>
+                    <div class="perf-embed-card"><div class="perf-embed-placeholder fb-placeholder">Facebook embed coming soon</div></div>
                 </div>
-                
-                <div class="video-card">
-                    <div class="video-placeholder">
-                        YouTube Video 3
+                <div class="perf-view-more"><a href="#" target="_blank" class="perf-view-more-btn fb-btn">Visit Facebook Page</a></div>
+            </div>
+
+            <!-- 3. Instagram Reels -->
+            <div class="perf-subsection">
+                <div class="perf-subsection-header">
+                    <div class="perf-platform-tag ig-tag">
+                        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                        Instagram
                     </div>
-                    <div class="video-info">
-                        <h3>Concert Title</h3>
-                        <p>Venue Name • Date</p>
-                    </div>
-                    </div>
+                    <h3 class="perf-subsection-title">Reels from Instagram</h3>
                 </div>
-            </div>
-            </div>
-            
-            <!-- Performance Gallery - TEMPORARILY REMOVED -->
-            <!--
-            <div class="performance-gallery">
-                <h3 style="font-family: var(--font-display); font-size: 32px; font-weight: 600; color: var(--color-peacock); margin: 0 0 40px; text-align: center;">Performance Gallery</h3>
-                <div class="gallery-grid">
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder">Photo 1</div>
-                    </div>
-
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder">Photo 2</div>
-                    </div>
-
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder">Photo 3</div>
-                    </div>
-
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder">Photo 4</div>
-                    </div>
-
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder">Photo 5</div>
-                    </div>
-
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder">Photo 6</div>
-                    </div>
-
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder">Photo 7</div>
-                    </div>
-
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder">Photo 8</div>
-                    </div>
+                <div class="perf-video-grid perf-portrait-grid">
+                    <div class="perf-embed-card"><div class="perf-embed-placeholder ig-placeholder">Instagram embed coming soon</div></div>
+                    <div class="perf-embed-card"><div class="perf-embed-placeholder ig-placeholder">Instagram embed coming soon</div></div>
+                    <div class="perf-embed-card"><div class="perf-embed-placeholder ig-placeholder">Instagram embed coming soon</div></div>
                 </div>
+                <div class="perf-view-more"><a href="#" target="_blank" class="perf-view-more-btn ig-btn">Visit Instagram Profile</a></div>
             </div>
-            -->
+
         </div>
     </section>
 
